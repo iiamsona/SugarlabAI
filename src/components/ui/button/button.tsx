@@ -36,12 +36,21 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       >
-        {iconSrc && (
+        {iconSrc && iconSrc != '/user.svg' && (
           <Image
             src={iconSrc}
             alt="icon"
             width={iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20}
             height={iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20}
+            className="inline-block mr-1 cursor-pointer"
+          />
+        )}
+        {iconSrc == '/user.svg' && (
+          <Image
+            src={iconSrc}
+            alt="icon"
+            width={36}
+            height={36}
             className="inline-block mr-1 cursor-pointer"
           />
         )}

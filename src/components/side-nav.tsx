@@ -8,33 +8,45 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SideNav = () => {
+  const settingsItem = SIDENAV_ITEMS.find(
+    (item) => item.type === "item" && item.path === "/user"
+  );
+  const scrollItems = SIDENAV_ITEMS.filter(
+    (item) => item !== settingsItem
+  );
+
   return (
-    <div className="w-[250px] bg-[var(--color-background-primary)] h-screen flex-1 fixed hidden md:flex px-3 overflow-y-auto hide-scrollbar">
-      <div className="flex flex-col  w-full">
+    <div className="w-[250px] bg-[var(--color-background-primary)] h-screen fixed hidden md:flex flex-col px-3">
       <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] w-full">
         <Logo place="sideNav" />
       </div>
+      <div className="flex-1 overflow-y-auto hide-scrollbar mt-2">
         <div className="flex flex-col space-y-2">
-          {SIDENAV_ITEMS.map((item, idx) => {
+          {scrollItems.map((item, idx) => {
             if (item.type === "section") {
               return (
-                <div key={idx}>
+                <div key={`section-${idx}`}>
                   <div className="w-full h-[0.5px] bg-transparent">
                     <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
                   </div>
                   <div
-                    key={idx}
-                    className=" text-xs text-muted-foreground tracking-wider pt-3 text-[var(--color-gray-text)]"
+                    className="text-xs text-muted-foreground tracking-wider pt-3 text-[var(--color-gray-text)]"
+                    key={`section-title-${idx}`}
                   >
                     {item.section}
                   </div>
                 </div>
               );
             }
-            return <MenuItem key={idx} item={item} />;
+            return <MenuItem key={`item-${idx}`} item={item} />;
           })}
         </div>
       </div>
+      {settingsItem && (
+        <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2">
+          <MenuItem key="settings" item={settingsItem} />
+        </div>
+      )}
     </div>
   );
 };
@@ -61,7 +73,9 @@ const MenuItem = ({
     <div className="w-full">
       <Link
         href={
-          item.path === "/academy" ? "https://academy.sugarlab.ai/" : item.path
+          item.path === "/academy"
+            ? "https://academy.sugarlab.ai/"
+            : item.path
         }
         className="flex justify-center items-center"
       >
