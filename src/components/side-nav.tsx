@@ -9,9 +9,11 @@ import Link from "next/link";
 
 const SideNav = () => {
   return (
-    <div className="w-[250px] bg-[--color-background-primary] h-screen flex-1 fixed hidden md:flex px-3 overflow-y-auto hide-scrollbar">
+    <div className="w-[250px] bg-[var(--color-background-primary)] h-screen flex-1 fixed hidden md:flex px-3 overflow-y-auto hide-scrollbar">
       <div className="flex flex-col  w-full">
+      <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] w-full">
         <Logo place="sideNav" />
+      </div>
         <div className="flex flex-col space-y-2">
           {SIDENAV_ITEMS.map((item, idx) => {
             if (item.type === "section") {

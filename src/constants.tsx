@@ -78,4 +78,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: "Telegram",
     path: "/telegram",
   },
+  {
+    type: "item",
+    title: "Settings",
+    path: "/user",
+  },
 ];
