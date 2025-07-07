@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const SideNav = () => {
   return (
-    <div className="w-[250px] bg-[--color-background-primary] h-screen flex-1 fixed hidden md:flex px-3">
+    <div className="w-[250px] bg-[--color-background-primary] h-screen flex-1 fixed hidden md:flex px-3 overflow-y-auto hide-scrollbar">
       <div className="flex flex-col  w-full">
         <Logo place="sideNav" />
         <div className="flex flex-col space-y-2">
@@ -22,7 +22,7 @@ const SideNav = () => {
                   </div>
                   <div
                     key={idx}
-                    className=" text-xs text-muted-foreground tracking-wider pt-1 text-[var(--color-gray-text)]"
+                    className=" text-xs text-muted-foreground tracking-wider pt-3 text-[var(--color-gray-text)]"
                   >
                     {item.section}
                   </div>
