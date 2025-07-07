@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import type { VariantProps } from 'class-variance-authority';
 import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
-import { buttonVariants, useModel } from './model';
+import { buttonVariants } from './model';
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -34,12 +34,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Image
             src={iconSrc}
             alt="icon"
-            width={iconSize === 'lg' ? 24 : iconSize === 'md' ? 18 : 14}
-            height={iconSize === 'lg' ? 24 : iconSize === 'md' ? 18 : 14}
-            className="inline-block mr-2"
+            width={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 14}
+            height={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 20}
+            className="inline-block mr-1"
           />
         )}
-        {props.children && <p className="m-s6">{props.children}</p>}
+        {props.children && <p className="font-semibold text-sm leading-5">{props.children}</p>}
       </Comp>
     );
   }

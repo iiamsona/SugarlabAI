@@ -3,7 +3,8 @@
 
 :root {
   --color-background-primary: #0a0a0a;
-  --color-grey: #171717;
+  --color-grey: #262626;
+  --color-grey-border: #171717;
   --color-rose: #be123c;
   --color-yellow: #eab30880;
   --font-geist-sans: 'Montserrat', sans-serif;
