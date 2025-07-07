@@ -18,7 +18,7 @@ export const buttonVariants = cva(
         // primary Yellow
         primaryYellow: 'bg-[var(--color-yellow)] rounded-xl border border-[var(--color-yellow)]',
 
-        ghost: "hover:bg-[var(--color-grey)] rounded-xl hover:border hover:border-[var(--color-grey-border)] flex items-center justify-start px-4 py-[10px]",
+        ghost: "border border-transparent hover:border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] rounded-xl flex items-center justify-start px-4 py-[10px]",
       },
 
       size: {
@@ -26,7 +26,8 @@ export const buttonVariants = cva(
         sm: 'w-[86px] h-[36px] py-2 px-4',
         md: 'w-[135px] h-[36px] py-2 px-4',
         lg: 'w-[180px] h-[36px] py-2 px-4',
-        menuSz: 'w-[226px] h-[44px]'
+        menuSz: 'w-[226px] h-[44px]',
+        newSz: 'w-[32px] h-[16px] rounded-xl flex justify-center items-center'
       }
     },
     defaultVariants: {

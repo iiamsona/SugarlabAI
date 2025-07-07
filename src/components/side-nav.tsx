@@ -5,6 +5,7 @@ import { SideNavItem } from "@/types";
 import { Logo } from "./ui/logo";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { div } from "framer-motion/client";
 
 const SideNav = () => {
   return (
@@ -56,14 +57,21 @@ const MenuItem = ({
 
   return (
     <div>
-      <Link href={item.path}>
+      <Link href={item.path} className="flex justify-center items-center">
         <Button
           menu
           variant={variant}
           size="menuSz"
           iconSrc={`${item.path}.svg`}
         >
-          {item.title}
+          <div className="flex items-center justify-between w-full">
+            <span>{item.title}</span>
+            {item.path === "/academy" && (
+              <div className="-mt-2 ml-1 text-xs">
+                <Button variant={"primaryRose"} size={'newSz'} newBtn >New</Button>
+              </div>
+            )}
+          </div>
         </Button>
       </Link>
     </div>
