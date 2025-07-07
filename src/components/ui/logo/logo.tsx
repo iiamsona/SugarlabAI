@@ -45,11 +45,11 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
             />
           )}
         </div>
-        {place == "sideNav" && (
+        {/* {place == "sideNav" && (
           <div className="w-full h-[0.5px] bg-transparent">
             <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
           </div>
-        )}
+        )} */}
       </div>
     );
   }

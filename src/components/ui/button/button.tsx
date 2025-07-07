@@ -1,17 +1,18 @@
-import Image from 'next/image';
-import type { ButtonHTMLAttributes } from 'react';
-import { forwardRef } from 'react';
-import type { VariantProps } from 'class-variance-authority';
-import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@/lib/utils';
-import { buttonVariants } from './model';
+import Image from "next/image";
+import type { ButtonHTMLAttributes } from "react";
+import { forwardRef } from "react";
+import type { VariantProps } from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./model";
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  iconSize?: 'sm' | 'md' | 'lg';
+  iconSize?: "sm" | "md" | "lg";
   iconSrc?: string;
+  menu?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,28 +22,41 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant,
       size,
       asChild = false,
-      iconSize = size || 'sm',
+      iconSize = size || "sm",
       iconSrc,
+      menu,
       ...props
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : 'button';
+    const Comp = asChild ? Slot : "button";
     return (
-      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
-       {iconSrc && (
+      <Comp
+        className={`${cn(buttonVariants({ variant, size, className }))} cursor-pointer `}
+        ref={ref}
+        {...props}
+      >
+        {iconSrc && (
           <Image
             src={iconSrc}
             alt="icon"
-            width={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 20}
-            height={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 20}
-            className="inline-block mr-1"
+            width={iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20}
+            height={iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20}
+            className="inline-block mr-1 cursor-pointer"
           />
         )}
-        {props.children && <p className="font-semibold text-sm leading-5">{props.children}</p>}
+        {props.children && (
+          <p
+            className={`text-sm leading-5 cursor-pointer ${
+              menu ? "font-medium" : "font-semibold"
+            }`}
+          >
+            {props.children}
+          </p>
+        )}
       </Comp>
     );
   }
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";

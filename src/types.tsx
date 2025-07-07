@@ -7,7 +7,6 @@ export type SideNavItem =
       type: "item";
       title: string;
       path: string;
-      icon: React.ReactNode;
       subMenuItems?: {
         title: string;
         path: string;

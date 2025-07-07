@@ -8,13 +8,17 @@ export const buttonVariants = cva(
       variant: {
         none: '',
         // primary Gray
-        primaryGray: 'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)]',
-
+        primaryGray: 'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)] hover:bg-[var(--color-grey)]',
+        primaryMenuGray: 'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] flex items-center justify-start px-4 py-[10px]',
+        
         // primary Rose
-        primaryRose: 'bg-[var(--color-rose)] rounded-xl',
-
+        primaryRose: 'bg-[var(--color-rose)] rounded-xl border border-[var(--color-rose)]',
+        primaryMenuRose: 'bg-[var(--color-rose)] rounded-xl border border-[var(--color-rose)] flex items-center justify-start px-4 py-[10px]',
+        
         // primary Yellow
-        primaryYellow: 'bg-[var(--color-yellow)] rounded-xl',
+        primaryYellow: 'bg-[var(--color-yellow)] rounded-xl border border-[var(--color-yellow)]',
+
+        ghost: "hover:bg-[var(--color-grey)] rounded-xl hover:border hover:border-[var(--color-grey-border)] flex items-center justify-start px-4 py-[10px]",
       },
 
       size: {
@@ -22,22 +26,22 @@ export const buttonVariants = cva(
         sm: 'w-[86px] h-[36px] py-2 px-4',
         md: 'w-[135px] h-[36px] py-2 px-4',
         lg: 'w-[180px] h-[36px] py-2 px-4',
+        menuSz: 'w-[226px] h-[44px]'
       }
     },
     defaultVariants: {
       variant: 'primaryGray',
-      size: 'sm'
+      size: 'ns'
     }
   }
 );
 
 export const useModel = ({ variant }: ButtonProps) => {
   const getStrokeColor = () => {
-    const strokeColor = types[variant || 'primaryGray'];
+    const strokeColor = [variant || 'primaryGray'];
     return strokeColor;
   };
   const color = getStrokeColor();
-
   return {
     color
   };
