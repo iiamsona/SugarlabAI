@@ -4,8 +4,8 @@ import { SIDENAV_ITEMS } from "@/constants";
 import { SideNavItem } from "@/types";
 import { Logo } from "./ui/logo";
 import { Button } from "./ui/button";
+import Image from "next/image";
 import Link from "next/link";
-import { div } from "framer-motion/client";
 
 const SideNav = () => {
   return (
@@ -56,21 +56,36 @@ const MenuItem = ({
     : "ghost";
 
   return (
-    <div>
-      <Link href={item.path} className="flex justify-center items-center">
+    <div className="w-full">
+<Link
+  href={item.path === '/academy' ? 'https://academy.sugarlab.ai/' : item.path}
+  className="flex justify-center items-center"
+>
         <Button
           menu
           variant={variant}
           size="menuSz"
           iconSrc={`${item.path}.svg`}
         >
-          <div className="flex items-center justify-between w-full">
+          <div className="grid self-center grid-cols-3 w-full">
             <span>{item.title}</span>
             {item.path === "/academy" && (
-              <div className="-mt-2 ml-1 text-xs">
-                <Button variant={"primaryRose"} size={'newSz'} newBtn >New</Button>
+              <div className="ml-4 text-xs">
+                <Button variant={"primaryRose"} size={"newSz"} newBtn>
+                  New
+                </Button>
               </div>
             )}
+          {item.path === "/academy" && (
+            <div className="flex justify-end items-center w-full">
+              <Image
+                src="/link.svg"
+                alt="icon"
+                width={16}
+                height={16}
+              />
+            </div>
+          )}
           </div>
         </Button>
       </Link>
