@@ -13,7 +13,6 @@ export interface ButtonProps
   iconSize?: "sm" | "md" | "lg";
   iconSrc?: string;
   menu?: boolean;
-  newBtn?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -26,7 +25,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconSize = size || "sm",
       iconSrc,
       menu,
-      newBtn,
       ...props
     },
     ref
@@ -48,13 +46,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           />
         )}
         {props.children && (
-          <p
+          <div
             className={`text-sm leading-5 cursor-pointer ${
-              menu ? "font-medium ml-1" : newBtn? "font-semibold text-[9px]" : "font-semibold"
+              menu ? "font-medium ml-1" : "font-semibold"
             }`}
           >
             {props.children}
-          </p>
+          </div>
         )}
       </Comp>
     );

@@ -16,7 +16,7 @@ const SideNav = () => {
           {SIDENAV_ITEMS.map((item, idx) => {
             if (item.type === "section") {
               return (
-                <>
+                <div key={idx}>
                   <div className="w-full h-[0.5px] bg-transparent">
                     <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
                   </div>
@@ -26,7 +26,7 @@ const SideNav = () => {
                   >
                     {item.section}
                   </div>
-                </>
+                </div>
               );
             }
             return <MenuItem key={idx} item={item} />;
@@ -57,10 +57,12 @@ const MenuItem = ({
 
   return (
     <div className="w-full">
-<Link
-  href={item.path === '/academy' ? 'https://academy.sugarlab.ai/' : item.path}
-  className="flex justify-center items-center"
->
+      <Link
+        href={
+          item.path === "/academy" ? "https://academy.sugarlab.ai/" : item.path
+        }
+        className="flex justify-center items-center"
+      >
         <Button
           menu
           variant={variant}
@@ -70,22 +72,17 @@ const MenuItem = ({
           <div className="grid self-center grid-cols-3 w-full">
             <span>{item.title}</span>
             {item.path === "/academy" && (
-              <div className="ml-4 text-xs">
-                <Button variant={"primaryRose"} size={"newSz"} newBtn>
+              <div className="ml-1 text-xs">
+                <span className="ml-4 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
                   New
-                </Button>
+                </span>
               </div>
             )}
-          {item.path === "/academy" && (
-            <div className="flex justify-end items-center w-full">
-              <Image
-                src="/link.svg"
-                alt="icon"
-                width={16}
-                height={16}
-              />
-            </div>
-          )}
+            {item.path === "/academy" && (
+              <div className="flex justify-end items-center w-full">
+                <Image src="/link.svg" alt="icon" width={16} height={16} />
+              </div>
+            )}
           </div>
         </Button>
       </Link>

@@ -27,7 +27,6 @@ export const buttonVariants = cva(
         md: 'w-[135px] h-[36px] py-2 px-4',
         lg: 'w-[180px] h-[36px] py-2 px-4',
         menuSz: 'w-[226px] h-[44px]',
-        newSz: 'w-[32px] h-[16px] rounded-xl flex justify-center items-center'
       }
     },
     defaultVariants: {
