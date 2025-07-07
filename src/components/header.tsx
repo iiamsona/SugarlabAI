@@ -1,32 +1,67 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { Logo } from "./ui/button/logo";
+import {
+  loggedOutUser,
+  freeUser,
+  premiumUser,
+  type User,
+} from "@/lib/mockData";
 
 const Header = () => {
+  const [user] = useState<User>(premiumUser);
+
+  const LogInButtons = !user.isLoggedIn && !user.isPremium;
+  const NotPremiumButtons = user.isLoggedIn && !user.isPremium;
+  const PremiumButtons = user.isPremium;
+
   return (
-    <div className={"sticky inset-x-0 top-0 z-30 w-full"}>
-      <div className="flex h-[60px] items-center justify-between p-3">
+    <div className={"sticky top-0 z-30 w-full bg-white border-b border-gray-200"}>
+      <div className="flex h-[60px] items-center justify-between p-3 bg-[var(--color-background-primary)]">
         <div className="flex items-center space-x-4">
           <Logo place="header" />
         </div>
-        <div className="flex items-center justify-center gap-2">
+        {LogInButtons && (
+          <div className="flex items-center justify-center gap-2">
+            <Button
+              variant="primaryGray"
+              size="sm"
+              className=" sm:w-[135px] transition-all duration-300 ml-2"
+            >
+              Login
+            </Button>
+            <Button
+              variant="primaryRose"
+              size="md"
+              iconSrc="/bolt.svg"
+              iconSize="sm"
+            >
+              Try Free
+            </Button>
+          </div>
+        )}
+        {NotPremiumButtons && (
           <Button
-            variant="primaryGray"
-            size="sm"
-            className=" sm:w-[135px] transition-all duration-300 ml-2"
-          >
-            Login
-          </Button>
-          <Button
-            variant="primaryRose"
-            size="md"
+            variant="primaryYellow"
+            size="lg"
             iconSrc="/bolt.svg"
             iconSize="sm"
           >
-            Try Free
+            Get Premium
           </Button>
-        </div>
+        )}
+        {PremiumButtons && (
+          <Button
+            variant="primaryGray"
+            size="ns"
+            iconSrc="/coins.svg"
+            iconSize="sm"
+            className="transition-all duration-300 ml-2"
+          >
+            78365
+          </Button>
+        )}
       </div>
     </div>
   );

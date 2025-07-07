@@ -18,9 +18,10 @@ export const buttonVariants = cva(
       },
 
       size: {
+        ns: 'py-2 px-2 w-auto',
         sm: 'w-[86px] h-[36px] py-2 px-4',
         md: 'w-[135px] h-[36px] py-2 px-4',
-        lg: 'w-[135px] h-[36px] py-2 px-4',
+        lg: 'w-[180px] h-[36px] py-2 px-4',
       }
     },
     defaultVariants: {

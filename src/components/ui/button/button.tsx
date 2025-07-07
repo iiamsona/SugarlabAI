@@ -34,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Image
             src={iconSrc}
             alt="icon"
-            width={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 14}
+            width={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 20}
             height={iconSize === 'lg' ? 24 : iconSize === 'md' ? 22 : 20}
             className="inline-block mr-1"
           />
