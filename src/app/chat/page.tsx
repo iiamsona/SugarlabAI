@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const ChatPage = () => {
   return (
     <>
-      <span>ChatPage</span>
+      <span className="text-black">Chat</span>
     </>
   );
 };

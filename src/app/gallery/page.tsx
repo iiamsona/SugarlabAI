@@ -3,7 +3,7 @@ import React from 'react';
 const GalleryPage = () => {
   return (
     <>
-      <span>GalleryPage</span>
+      <span className="text-black">Gallery</span>
     </>
   );
 };

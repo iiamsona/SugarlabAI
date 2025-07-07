@@ -32,20 +32,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={`${cn(buttonVariants({ variant, size, className }))} cursor-pointer `}
+        className={`${cn(
+          buttonVariants({ variant, size, className })
+        )} cursor-pointer `}
         ref={ref}
         {...props}
       >
-        {iconSrc && iconSrc != '/user.svg' && (
+        {iconSrc && iconSrc != "/user.svg" && (
           <Image
             src={iconSrc}
             alt="icon"
-            width={iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20}
-            height={iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20}
+            width={
+              iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20
+            }
+            height={
+              iconSize === "lg" ? 24 : iconSize === "md" ? 22 : menu ? 24 : 20
+            }
             className="inline-block mr-1 cursor-pointer"
           />
         )}
-        {iconSrc == '/user.svg' && (
+        {iconSrc == "/user.svg" && (
           <Image
             src={iconSrc}
             alt="icon"

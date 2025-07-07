@@ -3,7 +3,7 @@ import React from 'react';
 const CreatePage = () => {
   return (
     <>
-      <span>CreatePage</span>
+      <span className="text-black">Create</span>
     </>
   );
 };

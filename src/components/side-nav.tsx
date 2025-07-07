@@ -11,9 +11,7 @@ const SideNav = () => {
   const settingsItem = SIDENAV_ITEMS.find(
     (item) => item.type === "item" && item.path === "/user"
   );
-  const scrollItems = SIDENAV_ITEMS.filter(
-    (item) => item !== settingsItem
-  );
+  const scrollItems = SIDENAV_ITEMS.filter((item) => item !== settingsItem);
 
   return (
     <div className="w-[250px] bg-[var(--color-background-primary)] h-screen fixed hidden md:flex flex-col px-3">
@@ -73,9 +71,7 @@ const MenuItem = ({
     <div className="w-full">
       <Link
         href={
-          item.path === "/academy"
-            ? "https://academy.sugarlab.ai/"
-            : item.path
+          item.path === "/academy" ? "https://academy.sugarlab.ai/" : item.path
         }
         className="flex justify-center items-center"
       >
