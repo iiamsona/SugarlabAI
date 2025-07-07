@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Onest } from 'next/font/google';
 
 import Header from '@/components/header';
-import HeaderMobile from '@/components/header-mobile';
+// import HeaderMobile from '@/components/header-mobile';
 import MarginWidthWrapper from '@/components/margin-width-wrapper';
 import PageWrapper from '@/components/page-wrapper';
 import SideNav from '@/components/side-nav';
@@ -29,7 +29,7 @@ export default function RootLayout({
           <main className="flex-1">
             <MarginWidthWrapper>
               <Header />
-              <HeaderMobile />
+              {/* <HeaderMobile /> */}
               <PageWrapper>{children}</PageWrapper>
             </MarginWidthWrapper>
           </main>

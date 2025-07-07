@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { Logo } from "./ui/button/logo";
+import { Logo } from "./ui/logo";
 import {
   loggedOutUser,
   freeUser,
@@ -10,14 +10,14 @@ import {
 } from "@/lib/mockData";
 
 const Header = () => {
-  const [user] = useState<User>(premiumUser);
+  const [user] = useState<User>(loggedOutUser);
 
   const LogInButtons = !user.isLoggedIn && !user.isPremium;
   const NotPremiumButtons = user.isLoggedIn && !user.isPremium;
   const PremiumButtons = user.isPremium;
 
   return (
-    <div className={"sticky top-0 z-30 w-full bg-white border-b border-gray-200"}>
+    <div className={"sticky top-0 z-30 w-full"}>
       <div className="flex h-[60px] items-center justify-between p-3 bg-[var(--color-background-primary)]">
         <div className="flex items-center space-x-4">
           <Logo place="header" />
@@ -26,7 +26,7 @@ const Header = () => {
           <div className="flex items-center justify-center gap-2">
             <Button
               variant="primaryGray"
-              size="sm"
+              size="ns"
               className=" sm:w-[135px] transition-all duration-300 ml-2"
             >
               Login
