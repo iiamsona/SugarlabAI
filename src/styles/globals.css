@@ -56,6 +56,7 @@ body {
   .navBtn {
     display: none;
   }
+
 }
 
 @media (max-width: 475px) {
@@ -63,4 +64,8 @@ body {
     margin-left: 2px;
     margin-right: 0;
   }
+}
+
+svg path {
+  fill: blue; 
 }

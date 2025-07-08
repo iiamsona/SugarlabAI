@@ -53,8 +53,8 @@ export function BottomNav({}: BottomNavProps) {
             iconSize="lg"
             iconSrc={`${item.path}.svg`}
             onClick={() => handleClick(item.path)}
-            className={cn(
-              "relative overflow-hidden py-1",
+            style={{ stroke: '#be123c' }}             className={cn(
+              "relative overflow-hidden py-1 [var(--color-rose)]:invert",
               isActive && !isReversedPath
                 ? "text-[var(--color-rose)]"
                 : "text-[var(--color-natural-text)]"
