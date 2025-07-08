@@ -21,12 +21,10 @@ const SideNav = () => {
       { "w-[72px] px-1": collapsed }
     )}
   >
-    {/* Sticky header */}
     <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] shrink-0">
       <Logo place="sideNav" />
     </div>
-  
-    {/* Scrollable nav section */}
+
     <div className="flex-1 overflow-y-auto hide-scrollbar">
       <div className={cn("flex flex-col space-y-2", { "space-y-1": collapsed })}>
         {scrollItems.map((item, idx) => {
@@ -51,7 +49,6 @@ const SideNav = () => {
       </div>
     </div>
   
-    {/* Sticky footer */}
     {settingsItem && (
       <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2 shrink-0">
         <MenuItem key="settings" item={settingsItem} />
@@ -107,8 +104,8 @@ const MenuItem = ({
           <div className={cn("grid self-center grid-cols-3 w-full", {'flex flex-col' : collapsed})}>
             <span>{item.title}</span>
             {item.path === "/academy" && !collapsed && (
-              <div className="ml-1 text-xs">
-                <span className="ml-4 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
+              <div className="sm:ml-1 text-xs">
+                <span className="sm:ml-4 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
                   New
                 </span>
               </div>

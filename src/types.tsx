@@ -7,6 +7,7 @@ export type SideNavItem =
       type: "item";
       title: string;
       path: string;
+      mobileMenu?: true
       subMenuItems?: {
         title: string;
         path: string;

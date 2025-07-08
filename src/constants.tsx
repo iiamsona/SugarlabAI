@@ -6,16 +6,19 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     type: "item",
     title: "Create",
     path: "/create",
+    mobileMenu: true,
   },
   {
     type: "item",
     title: "Explore",
     path: "/explore",
+    mobileMenu: true,
   },
   {
     type: "item",
     title: "Chat",
     path: "/chat",
+    mobileMenu: true,
   },
   {
     type: "item",
@@ -82,5 +85,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     type: "item",
     title: "Settings",
     path: "/user",
+    mobileMenu: true,
   },
 ];
