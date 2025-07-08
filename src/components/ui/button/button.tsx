@@ -34,6 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const Comp = asChild ? Slot : "button";
+    const button = sMenu && iconSize != "lg";
     return (
       <Comp
         className={`${cn(buttonVariants({ variant, size, className }), {
@@ -57,7 +58,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                   ? 24
                   : iconSize === "md"
                   ? 22
-                  : sMenu && iconSize != "lg"
+                  : button
                   ? 20
                   : 20
               }
@@ -66,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                   ? 24
                   : iconSize === "md"
                   ? 22
-                  : sMenu && iconSize != "lg"
+                  : button
                   ? 20
                   : 20
               }

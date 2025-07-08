@@ -75,7 +75,10 @@ const SideNav = () => {
 
       {settingsItem && (
         <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2 shrink-0">
-          <MenuItem key="settings" item={settingsItem} />
+          <MenuItem
+            key="settings"
+            item={settingsItem as Extract<SideNavItem, { type: "item" }>}
+          />
         </div>
       )}
     </div>
