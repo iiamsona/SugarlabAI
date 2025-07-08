@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sugarlab Navigation UI
 
-## Getting Started
+A responsive, modern, and accessible navigation menu system built with **Next.js**, **React**, **Tailwind CSS**, and **Radix UI**. This UI adapts based on user authentication (logged in, premium, or not), device (desktop or mobile), and screen width. It includes support for user-specific features such as premium tokens, settings, and more.
 
-First, run the development server:
+---
+
+The UI includes:
+- Dynamic navigation menus for different user states (guest, logged-in, premium)
+- Responsive behavior with full support for mobile and desktop
+- Collapsible sidebar
+- Icon-based navigation with tooltips
+- Token display and upgrade call-to-actions
+
+> _Note: Language selector was intentionally excluded from the implementation._
+
+---
+
+## 🛠️ Built With
+
+- [Next.js 15](https://nextjs.org/)
+- [React 19](https://reactjs.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Zustand](https://github.com/pmndrs/zustand) for state management
+- [Radix UI](https://www.radix-ui.com/)
+- [Iconify](https://iconify.design/) for scalable icons
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/sugarlab.git
+cd sugarlab
+npm install
+````
+
+---
+
+## 🚀 Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗 Build
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Lint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* [x] Responsive mobile & desktop sidebar
+* [x] Conditional UI based on user state
+* [x] Interactive buttons and tooltips
+* [x] Icon-based bottom navigation bar for mobile
+* [x] Premium features call-to-action (e.g., "Get Premium")
+* [x] Clean, dark UI theme
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── components/
+├── constants/
+├── store/              # Zustand store
+├── styles/
+├── public/
+└── pages/
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙌 Acknowledgements
+
+Special thanks to:
+
+* [Radix UI](https://www.radix-ui.com/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Framer Motion](https://www.framer.com/motion/)
+* [Iconify](https://iconify.design/)
+
+---
