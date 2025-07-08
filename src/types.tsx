@@ -17,4 +17,5 @@ export type BottomNavItem = {
   title: string;
   path: string;
   premium?: boolean;
+  nonPremium?: boolean;
 };

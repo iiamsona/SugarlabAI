@@ -5,7 +5,6 @@ import type { VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./model";
-import { BlockList } from "net";
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -54,30 +53,29 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               src={iconSrc}
               alt="icon"
               width={
-                iconSize === "lg"
+                iconSize === "lg" || menu
                   ? 24
                   : iconSize === "md"
                   ? 22
-                  : menu
-                  ? 24
-                  : sMenu
+                  : sMenu && iconSize != "lg"
                   ? 20
                   : 20
               }
               height={
-                iconSize === "lg"
+                iconSize === "lg" || menu
                   ? 24
                   : iconSize === "md"
                   ? 22
-                  : menu
-                  ? 24
-                  : sMenu
+                  : sMenu && iconSize != "lg"
                   ? 20
                   : 20
               }
-              className={cn("inline-block mr-1 cursor-pointer min-w-[20px]", {
-                "mr-0": sMenu,
-              })}
+              className={cn(
+                "inline-block mr-1 cursor-pointer min-w-[20px]",
+                {
+                  "mr-0": sMenu,
+                }
+              )}
             />
           </div>
         )}
@@ -86,8 +84,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Image
             src={iconSrc}
             alt="icon"
-            width={36}
-            height={36}
+            width={iconSize=='lg'? 24: 36}
+            height={iconSize=='lg'? 24: 36}
             className={cn("inline-block mr-1 cursor-pointer", {
               "mr-0": sMenu,
             })}

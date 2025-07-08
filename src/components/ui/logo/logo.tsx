@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
-import { useSidebarStore } from "@/store/useSidebarStore";
+import { useNavbarStore } from "@/store/useNavbarStore";
 
 export interface LogoProps {
   place?: "header" | "sideNav";
@@ -10,8 +10,8 @@ export interface LogoProps {
 
 export const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ place = "header" }, ref) => {
-    const collapsed = useSidebarStore((state) => state.collapsed);
-    const toggle = useSidebarStore((state) => state.toggle);
+    const collapsed = useNavbarStore((state) => state.collapsed);
+    const toggle = useNavbarStore((state) => state.toggle);
     return (
       <div ref={ref}>
         <div className="flex h-[60px] justify-center">

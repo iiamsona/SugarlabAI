@@ -6,7 +6,7 @@ import { Logo } from "./ui/logo";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { useSidebarStore } from "@/store/useSidebarStore";
+import { useNavbarStore } from "@/store/useNavbarStore";
 import { cn } from "@/lib/utils";
 
 const SideNav = () => {
@@ -14,7 +14,7 @@ const SideNav = () => {
     (item) => item.type === "item" && item.path === "/user"
   );
   const scrollItems = SIDENAV_ITEMS.filter((item) => item !== settingsItem);
-  const collapsed = useSidebarStore((state) => state.collapsed);
+  const collapsed = useNavbarStore((state) => state.collapsed);
   return (<div
     className={cn(
       "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3",
@@ -71,7 +71,7 @@ const MenuItem = ({
   const isActive = pathname === item.path || pathname.includes(item.path);
   const isCreate = item.path === "/create";
 
-  const collapsed = useSidebarStore((state) => state.collapsed);
+  const collapsed = useNavbarStore((state) => state.collapsed);
 
   const variant = isCreate
     ? "primaryMenuRose"

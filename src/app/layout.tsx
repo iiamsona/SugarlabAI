@@ -4,10 +4,11 @@ import type { Metadata } from 'next';
 import { Onest } from 'next/font/google';
 
 import Header from '@/components/header';
-// import HeaderMobile from '@/components/header-mobile';
 import MarginWidthWrapper from '@/components/margin-width-wrapper';
 import PageWrapper from '@/components/page-wrapper';
 import SideNav from '@/components/side-nav';
+import { BottomNav } from '@/components/bottom-nav';
+import { premiumUser } from "@/lib/mockData"; 
 
 const inter = Onest({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const user = premiumUser;
   return (
     <html lang="en">
       <body className={`bg-[--color-background-primary] ${inter.className}`}>
@@ -29,8 +31,10 @@ export default function RootLayout({
           <main className="flex-1">
             <MarginWidthWrapper>
               <Header />
-              {/* <HeaderMobile /> */}
               <PageWrapper>{children}</PageWrapper>
+              <BottomNav 
+              isPremium={user.isPremium}
+              isLoggedIn={user.isLoggedIn}/>
             </MarginWidthWrapper>
           </main>
         </div>

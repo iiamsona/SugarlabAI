@@ -105,7 +105,7 @@ export const BOTTOMNAV_ITEMS: BottomNavItem[] = [
   {
     title: "Premium",
     path: "/bolt",
-    premium: true,
+    nonPremium: true,
   },
   {
     title: "Tokens",
