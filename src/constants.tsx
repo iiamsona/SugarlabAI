@@ -70,7 +70,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
   {
     type: "item",
-    title: "X",
+    title: "X.com",
     path: "/x",
   },
   {
@@ -116,4 +116,4 @@ export const BOTTOMNAV_ITEMS: BottomNavItem[] = [
     title: "Menu",
     path: "/user",
   },
-]
+];

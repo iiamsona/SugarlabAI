@@ -10,7 +10,12 @@ export default function MarginWidthWrapper({
 }) {
   const collapsed = useNavbarStore((state) => state.collapsed);
   return (
-    <div className={cn("flex flex-col md:ml-[250px] sm:border-r sm:border-zinc-700 min-h-screen", {'md:ml-[72px]' : collapsed})}>
+    <div
+      className={cn(
+        "flex flex-col md:ml-[250px] sm:border-r sm:border-zinc-700 min-h-screen",
+        { "md:ml-[72px]": collapsed }
+      )}
+    >
       {children}
     </div>
   );

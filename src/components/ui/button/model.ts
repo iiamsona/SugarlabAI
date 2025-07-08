@@ -7,15 +7,13 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         none: '',
-        // primary Gray
+
         primaryGray: 'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)] hover:bg-[var(--color-grey)]',
         primaryMenuGray: 'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] flex items-center justify-start px-4 py-[10px]',
         
-        // primary Rose
         primaryRose: 'bg-[var(--color-rose)] rounded-xl border border-[var(--color-rose)]',
         primaryMenuRose: 'bg-[var(--color-rose)] rounded-xl border border-[var(--color-rose)] flex items-center justify-start px-4 py-[10px]',
         
-        // primary Yellow
         primaryYellow: 'bg-[var(--color-yellow)] rounded-xl border border-[var(--color-yellow)]',
 
         ghost: "border border-transparent hover:border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] rounded-xl flex items-center justify-start px-4 py-[10px]",

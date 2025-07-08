@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "./ui/button";
 import { Logo } from "./ui/logo";
 import {
@@ -10,7 +10,7 @@ import {
 } from "@/lib/mockData";
 
 const Header = () => {
-  const [user] = useState<User>(loggedOutUser);
+  const user = loggedOutUser; //test
 
   const LogInButtons = !user.isLoggedIn && !user.isPremium;
   const NotPremiumButtons = user.isLoggedIn && !user.isPremium;
@@ -21,7 +21,6 @@ const Header = () => {
       <div className="flex h-[60px] items-center justify-between p-3 bg-[var(--color-background-primary)]">
         <div className="flex items-center space-x-4">
           <Logo place="header" />
-          
         </div>
         {LogInButtons && (
           <div className="flex items-center justify-center gap-2">

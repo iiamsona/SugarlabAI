@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { SIDENAV_ITEMS } from "@/constants";
 import { SideNavItem } from "@/types";
 import { Logo } from "./ui/logo";
@@ -16,14 +17,29 @@ const SideNav = () => {
   const scrollItems = SIDENAV_ITEMS.filter((item) => item !== settingsItem);
   const collapsed = useNavbarStore((state) => state.collapsed);
   const opened = useNavbarOpenStore((state) => state.opened);
+
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isHidden = windowWidth !== null ? !opened && windowWidth <= 390 : false;
+  const isFlex = windowWidth !== null ? opened || windowWidth > 390 : true;
+
   return (
     <div
       className={cn(
         "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3 pb-2",
         { "w-[72px] px-1": collapsed },
         {
-          hidden: !opened && window.innerWidth <= 390,
-          flex: opened || window.innerWidth > 390,
+          hidden: isHidden,
+          flex: isFlex,
         }
       )}
     >
@@ -113,18 +129,20 @@ const MenuItem = ({
               "flex flex-col": collapsed,
             })}
           >
-            <span>{item.title == 'Settings' && collapsed ? '' : item.title}</span>
+            <span>
+              {item.title == "Settings" && collapsed ? "" : item.title}
+            </span>
             {item.path === "/academy" && !collapsed && (
-              <div className=" text-xs flex justify-start">
-                <span className="new-btn ml-3 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
-                  New
-                </span>
-              </div>
-            )}
-            {item.path === "/academy" && !collapsed && (
-              <div className="flex justify-end items-center w-full">
-                <Image src="/link.svg" alt="icon" width={16} height={16} />
-              </div>
+              <>
+                <div className="text-xs flex justify-start">
+                  <span className="new-btn ml-3 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
+                    New
+                  </span>
+                </div>
+                <div className="flex justify-end items-center w-full">
+                  <Image src="/link.svg" alt="icon" width={16} height={16} />
+                </div>
+              </>
             )}
           </div>
         </Button>

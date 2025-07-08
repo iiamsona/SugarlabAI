@@ -5,10 +5,10 @@
   --color-grey-border: #262626;
   --color-grey: #171717;
   --color-gray-text: #a3a3a3;
-  --color-natural-text: #FAFAFA;
+  --color-natural-text: #fafafa;
   --color-rose: #be123c;
   --color-yellow: #eab30880;
-  --color-gradient-first: #EAB30800;
+  --color-gradient-first: #eab30800;
   --color-gradient-second: #eab20879;
 }
 
@@ -44,7 +44,7 @@ body {
   .sidenav span {
     text-align: start;
   }
-  .bottomnav{
+  .bottomnav {
     display: flex;
   }
   .menu-button {
