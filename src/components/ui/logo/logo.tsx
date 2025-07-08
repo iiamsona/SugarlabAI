@@ -26,7 +26,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
                 "md:justify-start w-full h-[60px] p-3": place == "sideNav",
               },
               {
-                hidden: collapsed,
+                "lg:hidden md:hidden sm:flex sm:justify-center": collapsed,
               }
             )}
           >
