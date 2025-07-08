@@ -19,6 +19,13 @@ export const buttonVariants = cva(
         primaryYellow: 'bg-[var(--color-yellow)] rounded-xl border border-[var(--color-yellow)]',
 
         ghost: "border border-transparent hover:border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] rounded-xl flex items-center justify-start px-4 py-[10px]",
+
+        primarySMenuRose:'bg-[var(--color-rose)] rounded-xl border border-[var(--color-rose)] flex items-center justify-center',
+
+        primarySMenuGray:'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] flex items-center justify-center',
+
+        ghostS: "border border-transparent hover:border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] rounded-xl flex items-center justify-center",
+
       },
 
       size: {
@@ -27,6 +34,7 @@ export const buttonVariants = cva(
         md: 'w-[135px] h-[36px] py-2 px-4',
         lg: 'w-[180px] h-[36px] py-2 px-4',
         menuSz: 'w-[226px] h-[44px]',
+        sMenu: 'w-[64px] h-[64px]'
       }
     },
     defaultVariants: {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
+import { useSidebarStore } from "@/store/useSidebarStore";
 
 export interface LogoProps {
   place?: "header" | "sideNav" | "mobile";
@@ -9,9 +10,11 @@ export interface LogoProps {
 
 export const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ place = "header" }, ref) => {
+    const collapsed = useSidebarStore((state) => state.collapsed);
+    const toggle = useSidebarStore((state) => state.toggle);
     return (
       <div ref={ref}>
-        <div className="flex">
+        <div className="flex h-[60px] justify-center">
           <Link
             href="/"
             className={cn(
@@ -21,6 +24,9 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
               },
               {
                 "md:justify-start w-full h-[60px] p-3": place == "sideNav",
+              },
+              {
+                hidden: collapsed,
               }
             )}
           >
@@ -41,13 +47,24 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
               alt="Logo"
               width={22}
               height={29}
-              className="rounded-lg mr-3"
+              className={cn(
+                "rounded-lg cursor-pointer",
+                { "mr-3": !collapsed },
+                { "rotate-180": collapsed }
+              )}
+              onClick={toggle}
             />
           )}
         </div>
         {place == "sideNav" && (
           <div className="w-full h-[0.5px] bg-transparent">
-            <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
+            <div
+              className={cn(
+                "h-[0.5px] bg-[var(--color-grey)]",
+                { "mx-3": !collapsed },
+                { "mx-1": collapsed }
+              )}
+            ></div>
           </div>
         )}
       </div>
