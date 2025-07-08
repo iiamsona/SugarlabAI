@@ -37,6 +37,7 @@ body {
     display: flex !important;
     width: 100%;
     min-width: 345px;
+    padding-bottom: 66px;
   }
   .sidenav span {
     text-align: start;
