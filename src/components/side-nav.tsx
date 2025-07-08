@@ -6,7 +6,7 @@ import { Logo } from "./ui/logo";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { useNavbarStore } from "@/store/useNavbarStore";
+import { useNavbarStore, useNavbarOpenStore } from "@/store/useNavbarStore";
 import { cn } from "@/lib/utils";
 
 const SideNav = () => {
@@ -15,48 +15,55 @@ const SideNav = () => {
   );
   const scrollItems = SIDENAV_ITEMS.filter((item) => item !== settingsItem);
   const collapsed = useNavbarStore((state) => state.collapsed);
-  return (<div
-    className={cn(
-      "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3",
-      { "w-[72px] px-1": collapsed }
-    )}
-  >
-    <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] shrink-0">
-      <Logo place="sideNav" />
-    </div>
+  const opened = useNavbarOpenStore((state) => state.opened);
+  return (
+    <div
+      className={cn(
+        "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3",
+        { "w-[72px] px-1": collapsed },
+        {
+          'hidden': !opened && window.innerWidth <= 390,
+          'flex': opened || window.innerWidth > 390
+        }
+      )}
+    >
+      <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] shrink-0">
+        <Logo place="sideNav" />
+      </div>
 
-    <div className="flex-1 overflow-y-auto hide-scrollbar">
-      <div className={cn("flex flex-col space-y-2", { "space-y-1": collapsed })}>
-        {scrollItems.map((item, idx) => {
-          if (item.type === "section") {
-            return (
-              <div key={`section-${idx}`}>
-                {!collapsed && (
-                  <>
-                    <div className="w-full h-[0.5px] bg-transparent">
-                      <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
-                    </div>
-                    <div className="text-xs text-[var(--color-gray-text)] tracking-wider pt-3">
-                      {item.section}
-                    </div>
-                  </>
-                )}
-              </div>
-            );
-          }
-          return <MenuItem key={`item-${idx}`} item={item} />;
-        })}
+      <div className="flex-1 overflow-y-auto hide-scrollbar">
+        <div
+          className={cn("flex flex-col space-y-2", { "space-y-1": collapsed })}
+        >
+          {scrollItems.map((item, idx) => {
+            if (item.type === "section") {
+              return (
+                <div key={`section-${idx}`}>
+                  {!collapsed && (
+                    <>
+                      <div className="w-full h-[0.5px] bg-transparent">
+                        <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
+                      </div>
+                      <div className="text-xs text-[var(--color-gray-text)] tracking-wider pt-3">
+                        {item.section}
+                      </div>
+                    </>
+                  )}
+                </div>
+              );
+            }
+            return <MenuItem key={`item-${idx}`} item={item} />;
+          })}
+        </div>
       </div>
+
+      {settingsItem && (
+        <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2 shrink-0">
+          <MenuItem key="settings" item={settingsItem} />
+        </div>
+      )}
     </div>
-  
-    {settingsItem && (
-      <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2 shrink-0">
-        <MenuItem key="settings" item={settingsItem} />
-      </div>
-    )}
-  </div>
-  
-  )
+  );
 };
 
 export default SideNav;
@@ -79,7 +86,7 @@ const MenuItem = ({
     ? "primaryMenuGray"
     : "ghost";
 
-    const variantS = isCreate
+  const variantS = isCreate
     ? "primarySMenuRose"
     : isActive
     ? "primarySMenuGray"
@@ -95,13 +102,17 @@ const MenuItem = ({
       >
         <Button
           menu
-          variant={collapsed ? variantS : variant }
+          variant={collapsed ? variantS : variant}
           size={collapsed ? "sMenu" : "menuSz"}
           iconSrc={`${item.path}.svg`}
           sMenu={collapsed}
           menuNew={item.path === "/academy" && collapsed}
         >
-          <div className={cn("grid self-center grid-cols-3 w-full", {'flex flex-col' : collapsed})}>
+          <div
+            className={cn("grid self-center grid-cols-3 w-full", {
+              "flex flex-col": collapsed,
+            })}
+          >
             <span>{item.title}</span>
             {item.path === "/academy" && !collapsed && (
               <div className=" text-xs flex justify-start">

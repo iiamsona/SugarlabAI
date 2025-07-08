@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useNavbarStore } from "@/store/useNavbarStore";
+import { useNavbarOpenStore } from "@/store/useNavbarStore";
 import { BOTTOMNAV_ITEMS } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,7 @@ interface BottomNavProps {
 export function BottomNav({ isPremium, isLoggedIn }: BottomNavProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const toggle = useNavbarStore((state) => state.toggle);
+  const toggle = useNavbarOpenStore((state) => state.toggle);
 
   const visibleItems = BOTTOMNAV_ITEMS.filter((item) => {
     if (!isLoggedIn && item.path !== "/explore") return false;
@@ -35,13 +35,6 @@ export function BottomNav({ isPremium, isLoggedIn }: BottomNavProps) {
     <nav className="fixed bottom-0 left-0 right-0 bg-black border-t border-zinc-800 h-[64px] flex justify-around items-center z-50 px-2">
       {visibleItems.map((item) => {
         const isActive = pathname === item.path;
-        const buttonClass = cn(
-            "text-white",
-            {
-              "text-[var(--color-rose)] fill-[var(--color-rose)]": isActive,
-              "text-white fill-white": !isActive,
-            }
-          );
         return (
           <Button
             key={item.path}

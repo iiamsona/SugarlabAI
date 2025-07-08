@@ -34,10 +34,9 @@ body {
 
 @media (max-width: 390px) {
   .sidenav {
-    display: flex !important;
     width: 100%;
     min-width: 345px;
-    padding-bottom: 66px;
+    padding-bottom: 70px;
   }
   .sidenav span {
     text-align: start;
