@@ -32,7 +32,7 @@ export function BottomNav({ isPremium, isLoggedIn }: BottomNavProps) {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-black border-t border-zinc-800 h-[64px] flex justify-around items-center z-50 px-2">
+    <nav className="bottomnav hidden fixed bottom-0 left-0 right-0 bg-black border-t border-zinc-800 h-[64px] justify-around items-center z-50 px-2">
       {visibleItems.map((item) => {
         const isActive = pathname === item.path;
         return (

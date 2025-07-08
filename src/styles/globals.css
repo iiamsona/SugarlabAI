@@ -41,6 +41,9 @@ body {
   .sidenav span {
     text-align: start;
   }
+  .bottomnav{
+    display: flex;
+  }
   .menu-button {
     width: 100%;
   }

@@ -19,11 +19,11 @@ const SideNav = () => {
   return (
     <div
       className={cn(
-        "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3",
+        "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3 pb-2",
         { "w-[72px] px-1": collapsed },
         {
-          'hidden': !opened && window.innerWidth <= 390,
-          'flex': opened || window.innerWidth > 390
+          hidden: !opened && window.innerWidth <= 390,
+          flex: opened || window.innerWidth > 390,
         }
       )}
     >
@@ -113,7 +113,7 @@ const MenuItem = ({
               "flex flex-col": collapsed,
             })}
           >
-            <span>{item.title}</span>
+            <span>{item.title == 'Settings' && collapsed ? '' : item.title}</span>
             {item.path === "/academy" && !collapsed && (
               <div className=" text-xs flex justify-start">
                 <span className="new-btn ml-3 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
