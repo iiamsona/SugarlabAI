@@ -50,10 +50,14 @@ body {
   .new-btn {
     margin-left: -12px;
   }
+  .navBtn {
+    display: none;
+  }
 }
 
 @media (max-width: 475px) {
   .navBtn {
-    display: none;
+    margin-left: 2px;
+    margin-right: 0;
   }
 }
