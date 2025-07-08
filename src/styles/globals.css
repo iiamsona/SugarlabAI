@@ -8,6 +8,8 @@
   --color-natural-text: #FAFAFA;
   --color-rose: #be123c;
   --color-yellow: #eab30880;
+  --color-gradient-first: #EAB30800;
+  --color-gradient-second: #eab20879;
 }
 
 html {

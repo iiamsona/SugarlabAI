@@ -45,7 +45,7 @@ export function BottomNav({}: BottomNavProps) {
       ? "to bottom"
       : "to top";
 
-    const gradientBackground = `linear-gradient(${gradientDirection}, #EAB308, #EAB30800)`;
+      const gradientBackground = `linear-gradient(${gradientDirection}, var(--color-gradient-first), var(--color-gradient-second))`
 
     return (
       <Button
@@ -56,7 +56,7 @@ export function BottomNav({}: BottomNavProps) {
         iconSrc={`${item.path}.svg`}
         onClick={() => handleClick(item.path)}
         className={cn(
-          "relative overflow-hidden",
+          "relative overflow-hidden py-1",
           isActive && !isReversedPath ? "text-[var(--color-rose)]" : "text-[var(--color-natural-text)]"
         )}
       >
