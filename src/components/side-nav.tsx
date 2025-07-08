@@ -15,49 +15,51 @@ const SideNav = () => {
   );
   const scrollItems = SIDENAV_ITEMS.filter((item) => item !== settingsItem);
   const collapsed = useSidebarStore((state) => state.collapsed);
-  return (
-    <div
-      className={cn(
-        "side-nav w-[250px] bg-[var(--color-background-primary)] h-screen fixed md:flex flex-col px-3 overflow-visible",
-        { "w-[72px] px-1": collapsed }
-      )}
-    >
-      <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] w-full">
-        <Logo place="sideNav" />
-      </div>
-      <div className="flex-1 overflow-y-auto hide-scrollbar">
-        <div className={cn("flex flex-col space-y-2", {'space-y-1' : collapsed})}>
-          {scrollItems.map((item, idx) => {
-            if (item.type === "section") {
-              return (
-                <div key={`section-${idx}`}>
-                 {!collapsed &&
-                 <div className="w-full h-[0.5px] bg-transparent">
-                    <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
-                  </div>
-                 } 
-                  {!collapsed && (
-                    <div
-                      className={cn("text-xs text-muted-foreground tracking-wider pt-3 text-[var(--color-gray-text)]")}
-                      key={`section-title-${idx}`}
-                    >
+  return (<div
+    className={cn(
+      "sidenav fixed left-0 top-0 h-screen w-[250px] bg-[var(--color-background-primary)] flex flex-col overflow-hidden px-3",
+      { "w-[72px] px-1": collapsed }
+    )}
+  >
+    {/* Sticky header */}
+    <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] shrink-0">
+      <Logo place="sideNav" />
+    </div>
+  
+    {/* Scrollable nav section */}
+    <div className="flex-1 overflow-y-auto hide-scrollbar">
+      <div className={cn("flex flex-col space-y-2", { "space-y-1": collapsed })}>
+        {scrollItems.map((item, idx) => {
+          if (item.type === "section") {
+            return (
+              <div key={`section-${idx}`}>
+                {!collapsed && (
+                  <>
+                    <div className="w-full h-[0.5px] bg-transparent">
+                      <div className="h-[0.5px] bg-[var(--color-grey)] mx-3"></div>
+                    </div>
+                    <div className="text-xs text-[var(--color-gray-text)] tracking-wider pt-3">
                       {item.section}
                     </div>
-                  )}
-                </div>
-              );
-            }
-            return <MenuItem key={`item-${idx}`} item={item} />;
-          })}
-        </div>
+                  </>
+                )}
+              </div>
+            );
+          }
+          return <MenuItem key={`item-${idx}`} item={item} />;
+        })}
       </div>
-      {settingsItem && (
-        <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2">
-          <MenuItem key="settings" item={settingsItem} />
-        </div>
-      )}
     </div>
-  );
+  
+    {/* Sticky footer */}
+    {settingsItem && (
+      <div className="sticky bottom-0 z-30 bg-[var(--color-background-primary)] w-full border-t border-[var(--color-grey-border)] pt-2 shrink-0">
+        <MenuItem key="settings" item={settingsItem} />
+      </div>
+    )}
+  </div>
+  
+  )
 };
 
 export default SideNav;

@@ -33,7 +33,7 @@ body {
 }
 
 @media (max-width: 390px) {
-  .side-nav {
+  .sidenav {
     display: flex !important;
     width: 100%;
   }
