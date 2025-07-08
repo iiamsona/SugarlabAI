@@ -25,7 +25,7 @@ const SideNav = () => {
       <div className="sticky top-0 z-30 bg-[var(--color-background-primary)] w-full">
         <Logo place="sideNav" />
       </div>
-      <div className="flex-1 overflow-y-auto hide-scrollbar mt-2">
+      <div className="flex-1 overflow-y-auto hide-scrollbar">
         <div className={cn("flex flex-col space-y-2", {'space-y-1' : collapsed})}>
           {scrollItems.map((item, idx) => {
             if (item.type === "section") {
@@ -38,7 +38,7 @@ const SideNav = () => {
                  } 
                   {!collapsed && (
                     <div
-                      className="text-xs text-muted-foreground tracking-wider pt-3 text-[var(--color-gray-text)]"
+                      className={cn("text-xs text-muted-foreground tracking-wider pt-3 text-[var(--color-gray-text)]")}
                       key={`section-title-${idx}`}
                     >
                       {item.section}

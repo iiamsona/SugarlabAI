@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useSidebarStore } from "@/store/useSidebarStore";
 
 export interface LogoProps {
-  place?: "header" | "sideNav" | "mobile";
+  place?: "header" | "sideNav";
 }
 
 export const Logo = forwardRef<HTMLDivElement, LogoProps>(
@@ -49,6 +49,20 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
               height={29}
               className={cn(
                 "rounded-lg cursor-pointer",
+                { "mr-3": !collapsed },
+                { "rotate-180": collapsed }
+              )}
+              onClick={toggle}
+            />
+          )}
+          {place == "header" && (
+            <Image
+              src="/open.svg"
+              alt="Logo"
+              width={22}
+              height={29}
+              className={cn(
+                "rounded-lg cursor-pointer md:hidden ml-9 navBtn",
                 { "mr-3": !collapsed },
                 { "rotate-180": collapsed }
               )}

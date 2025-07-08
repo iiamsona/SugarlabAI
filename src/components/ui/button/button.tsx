@@ -75,7 +75,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                   ? 20
                   : 20
               }
-              className={cn("inline-block mr-1 cursor-pointer", {
+              className={cn("inline-block mr-1 cursor-pointer min-w-[20px]", {
                 "mr-0": sMenu,
               })}
             />

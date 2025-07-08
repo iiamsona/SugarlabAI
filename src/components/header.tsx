@@ -21,6 +21,7 @@ const Header = () => {
       <div className="flex h-[60px] items-center justify-between p-3 bg-[var(--color-background-primary)]">
         <div className="flex items-center space-x-4">
           <Logo place="header" />
+          
         </div>
         {LogInButtons && (
           <div className="flex items-center justify-center gap-2">
