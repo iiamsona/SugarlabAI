@@ -4,9 +4,8 @@ import { Button } from "./ui/button";
 import { Logo } from "./ui/logo";
 import {
   loggedOutUser,
-  freeUser,
-  premiumUser,
-  type User,
+  // freeUser,
+  // premiumUser,
 } from "@/lib/mockData";
 
 const Header = () => {

@@ -3,7 +3,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { useNavbarOpenStore } from "@/store/useNavbarStore";
 import { BOTTOMNAV_ITEMS } from "@/constants";
 import { Button } from "@/components/ui/button";
-import { freeUser, premiumUser, type User } from "@/lib/mockData";
+import { 
+  freeUser, 
+  //premiumUser, 
+  type User
+} from "@/lib/mockData";
 import { cn } from "@/lib/utils";
 
 interface BottomNavProps {
@@ -53,7 +57,8 @@ export function BottomNav({}: BottomNavProps) {
             iconSize="lg"
             iconSrc={`${item.path}.svg`}
             onClick={() => handleClick(item.path)}
-            style={{ stroke: '#be123c' }}             className={cn(
+            style={{ stroke: "#be123c" }}
+            className={cn(
               "relative overflow-hidden py-1 [var(--color-rose)]:invert",
               isActive && !isReversedPath
                 ? "text-[var(--color-rose)]"
