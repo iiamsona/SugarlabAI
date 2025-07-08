@@ -1,4 +1,4 @@
-import { SideNavItem } from "@/types";
+import { SideNavItem, BottomNavItem } from "@/types";
 
 export const SIDENAV_ITEMS: SideNavItem[] = [
   { type: "section", section: "APP" },
@@ -6,19 +6,16 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     type: "item",
     title: "Create",
     path: "/create",
-    mobileMenu: true,
   },
   {
     type: "item",
     title: "Explore",
     path: "/explore",
-    mobileMenu: true,
   },
   {
     type: "item",
     title: "Chat",
     path: "/chat",
-    mobileMenu: true,
   },
   {
     type: "item",
@@ -85,6 +82,38 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     type: "item",
     title: "Settings",
     path: "/user",
-    mobileMenu: true,
   },
 ];
+
+export const BOTTOMNAV_ITEMS: BottomNavItem[] = [
+  {
+    title: "Explore",
+    path: "/explore",
+  },
+  {
+    title: "Chat",
+    path: "/chat",
+  },
+  {
+    title: "Create",
+    path: "/create",
+  },
+  {
+    title: "Gallery",
+    path: "/gallery",
+  },
+  {
+    title: "Premium",
+    path: "/bolt",
+    premium: true,
+  },
+  {
+    title: "Tokens",
+    path: "/tokens",
+    premium: true,
+  },
+  {
+    title: "Menu",
+    path: "/user",
+  },
+]
