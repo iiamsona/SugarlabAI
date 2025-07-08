@@ -18,7 +18,7 @@ const SideNav = () => {
   return (
     <div
       className={cn(
-        "w-[250px] bg-[var(--color-background-primary)] h-screen fixed hidden md:flex flex-col px-3 overflow-visible",
+        "side-nav w-[250px] bg-[var(--color-background-primary)] h-screen fixed md:flex flex-col px-3 overflow-visible",
         { "w-[72px] px-1": collapsed }
       )}
     >

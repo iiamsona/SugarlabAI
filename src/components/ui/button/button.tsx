@@ -39,7 +39,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={`${cn(buttonVariants({ variant, size, className }), {
           "flex flex-col justify-center items-center": sMenu,
-        })} cursor-pointer`}
+        })} cursor-pointer menu-button`}
         ref={ref}
         {...props}
       >

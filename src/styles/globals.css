@@ -31,3 +31,13 @@ body {
   -ms-overflow-style: none; 
   scrollbar-width: none; 
 }
+
+@media (max-width: 390px) {
+  .side-nav {
+    display: flex !important;
+    width: 100%;
+  }
+  .menu-button{
+    width: 100%;
+  }
+}
