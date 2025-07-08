@@ -1,8 +1,6 @@
 import '../styles/globals.css';
-
 import type { Metadata } from 'next';
 import { Onest } from 'next/font/google';
-
 import Header from '@/components/header';
 import MarginWidthWrapper from '@/components/margin-width-wrapper';
 import PageWrapper from '@/components/page-wrapper';

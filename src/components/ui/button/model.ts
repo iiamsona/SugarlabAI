@@ -25,6 +25,7 @@ export const buttonVariants = cva(
         primarySMenuGray:'bg-[var(--color-grey)] rounded-xl border border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] flex items-center justify-center',
 
         ghostS: "border border-transparent hover:border-[var(--color-grey-border)] hover:bg-[var(--color-grey)] rounded-xl flex items-center justify-center",
+        ghostNH: "border border-transparent rounded-xl flex items-center justify-center",
 
       },
 
