@@ -96,7 +96,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {props.children && (
           <div
             className={cn(
-              "text-sm leading-5 cursor-pointer text-center flex justify-center items-center",
+              "text-sm leading-5 cursor-pointer text-center flex justify-center items-center w-full",
               `${menu ? "font-medium ml-1" : "font-semibold"}`,
               {
                 "text-xs ml-0 mt-2": sMenu,

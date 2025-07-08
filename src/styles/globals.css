@@ -41,6 +41,9 @@ body {
   .menu-button{
     width: 100%;
   }
+  .new-btn{
+    margin-left: -12px;
+  }
 }
 
 @media (max-width: 475px) {

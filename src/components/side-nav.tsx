@@ -104,8 +104,8 @@ const MenuItem = ({
           <div className={cn("grid self-center grid-cols-3 w-full", {'flex flex-col' : collapsed})}>
             <span>{item.title}</span>
             {item.path === "/academy" && !collapsed && (
-              <div className="sm:ml-1 text-xs">
-                <span className="sm:ml-4 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
+              <div className=" text-xs flex justify-start">
+                <span className="new-btn ml-3 text-xs text-[9px] font-semibold bg-[var(--color-rose)] text-white w-[32px] h-[16px] px-[6px] py-[2px] rounded-xl">
                   New
                 </span>
               </div>
