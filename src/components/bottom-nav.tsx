@@ -5,7 +5,7 @@ import { BOTTOMNAV_ITEMS } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { 
   freeUser, 
-  //premiumUser, 
+  // premiumUser, 
   type User
 } from "@/lib/mockData";
 import { cn } from "@/lib/utils";

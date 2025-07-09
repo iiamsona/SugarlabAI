@@ -3,13 +3,13 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Logo } from "./ui/logo";
 import {
-  loggedOutUser,
-  // freeUser,
+  // loggedOutUser,
+  freeUser,
   // premiumUser,
 } from "@/lib/mockData";
 
 const Header = () => {
-  const user = loggedOutUser; //test
+  const user = freeUser; //test
 
   const LogInButtons = !user.isLoggedIn && !user.isPremium;
   const NotPremiumButtons = user.isLoggedIn && !user.isPremium;

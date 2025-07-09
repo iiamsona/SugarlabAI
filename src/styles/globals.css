@@ -50,6 +50,7 @@ body {
   }
   .menu-button {
     width: 100%;
+    max-width: 82;
   }
   .new-btn {
     margin-left: -12px;

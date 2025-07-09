@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { SIDENAV_ITEMS, BOTTOMNAV_ITEMS } from "@/constants";
+import { SIDENAV_ITEMS } from "@/constants";
 import { SideNavItem } from "@/types";
 import { Logo } from "./ui/logo";
 import { Button } from "./ui/button";
