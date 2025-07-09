@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { SIDENAV_ITEMS } from "@/constants";
+import { SIDENAV_ITEMS, BOTTOMNAV_ITEMS } from "@/constants";
 import { SideNavItem } from "@/types";
 import { Logo } from "./ui/logo";
 import { Button } from "./ui/button";
@@ -14,6 +14,7 @@ const SideNav = () => {
   const settingsItem = SIDENAV_ITEMS.find(
     (item) => item.type === "item" && item.path === "/user"
   );
+  
   const scrollItems = SIDENAV_ITEMS.filter((item) => item !== settingsItem);
   const collapsed = useNavbarStore((state) => state.collapsed);
   const opened = useNavbarOpenStore((state) => state.opened);

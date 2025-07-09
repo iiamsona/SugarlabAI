@@ -30,10 +30,10 @@ export function BottomNav({}: BottomNavProps) {
   });
 
   const handleClick = (itemPath: string) => {
-    if (itemPath === "/user") {
-      toggle();
-    } else {
+    if (itemPath != "/user") {
       router.push(itemPath);
+    } else{
+       toggle();
     }
   };
 
@@ -57,7 +57,6 @@ export function BottomNav({}: BottomNavProps) {
             iconSize="lg"
             iconSrc={`${item.path}.svg`}
             onClick={() => handleClick(item.path)}
-            style={{ stroke: "#be123c" }}
             className={cn(
               "relative overflow-hidden py-1 [var(--color-rose)]:invert",
               isActive && !isReversedPath

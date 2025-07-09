@@ -37,6 +37,7 @@ body {
 
 @media (max-width: 390px) {
   .sidenav {
+    display: hidden !important;
     width: 100%;
     min-width: 345px;
     padding-bottom: 70px;
@@ -64,8 +65,4 @@ body {
     margin-left: 2px;
     margin-right: 0;
   }
-}
-
-svg path {
-  fill: blue; 
 }
