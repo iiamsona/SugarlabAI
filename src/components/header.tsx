@@ -3,9 +3,9 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Logo } from "./ui/logo";
 import {
-  // loggedOutUser,
+  loggedOutUser,
   freeUser,
-  // premiumUser,
+  premiumUser,
 } from "@/lib/mockData";
 
 const Header = () => {
@@ -46,6 +46,7 @@ const Header = () => {
             size="lg"
             iconSrc="/bolt.svg"
             iconSize="sm"
+            className="min-w-[180px] px-8"
           >
             Get Premium
           </Button>
